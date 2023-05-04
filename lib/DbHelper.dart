@@ -52,6 +52,7 @@ class DbHelperData{
         );
    }
 
+
   // =======Insert DATA Into A DataBase======= //
 
     Future<int>InsertData(String id, String name, String email, String pass, String mob) async{
@@ -61,6 +62,6 @@ class DbHelperData{
         var res = await dbClient. insert('$TABLE_NAME', map);
         return res;
     }
-    
+
   }
  
