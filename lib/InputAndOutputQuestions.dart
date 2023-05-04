@@ -28,6 +28,7 @@ class _InputState extends State<Input> {
                 hintText: 'Input the Second number'
               ),
             ),
+            SizedBox(height: 20.0,),
             ElevatedButton(onPressed: (){
 
               }, child: Text('Sum of two numbers'),
