@@ -1,4 +1,5 @@
 import 'package:dbhelper_registrationform/InputAndOutputQuestions.dart';
+import 'package:dbhelper_registrationform/Signupform.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'DataBase Demo',
+      color: Colors.black45,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -26,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Input(),
+      home: SignupForm(),
     );
   }
 }

@@ -8,6 +8,17 @@ class Input extends StatefulWidget {
 }
 
 class _InputState extends State<Input> {
+  Widget textarea({required var control, required var name}){
+    return TextField(
+      controller: control,
+      decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))
+          ),
+          hintText: name,
+      ),
+    );
+  }
   var text1 = TextEditingController();
   var text2 = TextEditingController();
   var c = 0;
@@ -37,20 +48,12 @@ class _InputState extends State<Input> {
               ),
             ),
             SizedBox(height: 10.0,),
-            TextField(
-              controller: text2,
-              decoration: InputDecoration(
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0))
-                ),
-                hintText: 'Input Second number'
-              ),
-            ),
+            textarea(control: text2, name: 'Input Second Number'),
             SizedBox(height: 20.0,),
             ElevatedButton(onPressed: (){
 
               setState(() {
-               c = int.parse(text1.text) * int.parse(text2.text);
+               c = int.parse(text1.text) + int.parse(text2.text);
               });
 
               }, child: Text('Sum of two numbers'),
