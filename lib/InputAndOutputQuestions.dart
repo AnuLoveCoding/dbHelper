@@ -8,31 +8,55 @@ class Input extends StatefulWidget {
 }
 
 class _InputState extends State<Input> {
+  var text1 = TextEditingController();
+  var text2 = TextEditingController();
+  var c = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(),
       appBar: AppBar(
-        title: Text('Demo Test0'),
+        // leading: Icon(Icons.arrow_back_ios),
+        title: Text('Resitration Form'),
+        centerTitle: true,
       ),
-
       body: Container(
+        padding: EdgeInsets.all(20.0),
+        margin: EdgeInsets.symmetric(horizontal: 50.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextField(
+              controller: text1,
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))
+                ),
                 hintText: 'Input first number',
               ),
             ),
+            SizedBox(height: 10.0,),
             TextField(
+              controller: text2,
               decoration: InputDecoration(
-                hintText: 'Input the Second number'
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(20.0))
+                ),
+                hintText: 'Input Second number'
               ),
             ),
             SizedBox(height: 20.0,),
             ElevatedButton(onPressed: (){
 
+              setState(() {
+               c = int.parse(text1.text) * int.parse(text2.text);
+              });
+
               }, child: Text('Sum of two numbers'),
             ),
+            SizedBox(height: 10.0,),
+            Text('Sum $c'),
           ],
         ),
       ),
