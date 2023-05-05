@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Input extends StatefulWidget {
-  const Input({Key? key}) : super(key: key);
-
   @override
   State<Input> createState() => _InputState();
 }

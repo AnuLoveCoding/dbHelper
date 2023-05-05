@@ -20,10 +20,10 @@ class _SignupFormState extends State<SignupForm> {
   int _counter = 0;
 
   final id = TextEditingController();
-  final n = TextEditingController();
-  final e= TextEditingController();
-  final p = TextEditingController();
-  final m = TextEditingController();
+  final name = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final mobile = TextEditingController();
 
   var dbHelper;
 
@@ -46,16 +46,16 @@ class _SignupFormState extends State<SignupForm> {
         children: <Widget>[
           textarea(name1: id, name: 'id'),
           SizedBox(height: 10.0,),
-          textarea(name1: n, name: 'Name'),
+          textarea(name1: name, name: 'Name'),
           SizedBox(height: 10.0,),
-          textarea(name1: e, name: 'Email'),
+          textarea(name1: email , name: 'Email'),
           SizedBox(height: 10.0,),
-          textarea(name1: p,name: 'password'),
+          textarea(name1: password,name: 'password'),
           SizedBox(height: 10.0,),
-          textarea(name1: m,name: 'Mobile No:'),
+          textarea(name1: mobile,name: 'Mobile No:'),
           SizedBox(height: 10.0,),
           ElevatedButton(onPressed: (){
-            int aa = dbHelper.InsertData(id.text,n.text,e.text,p.text,m.text);
+            int aa = dbHelper.InsertData(id.text,name.text,email.text,password.text,mobile.text);
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('$aa')));
             }, child: Text('Register Here'))
           ]
