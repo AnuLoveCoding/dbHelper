@@ -57,10 +57,25 @@ class DbHelperData{
     Future<int>InsertData(String id, String name, String email, String pass, String mob) async{
         var dbClient = await db;
         var map = Map<String, dynamic>();
-        map = {'userid' : id, 'name' : name, 'email' : email, 'password' : pass, 'mobile': mob};
+        map = {'userid' : id, 'name' : name, 'email' : email, 'pass' : pass, 'mobile': mob};
         var res = await dbClient. insert('$TABLE_NAME', map);
         return res;
     }
 
+
+  Future<int> getLogin(String email, String password) async {
+    var dbClient = await db;
+    var res = await dbClient.rawQuery("SELECT * FROM Signupform1 WHERE email = '$email' and pass = '$password'");
+
+   /* if (res.length > 0) {
+      return new User.fromMap(res.first);
+    }*/
+
+    return res.length;
+
+
   }
+
+
+}
  

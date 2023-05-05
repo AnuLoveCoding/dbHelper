@@ -1,11 +1,31 @@
 import 'package:flutter/material.dart';
 
+import 'DbHelper.dart';
+
 class LoginPage extends StatefulWidget {
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+
+
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+
+  var dbHelper;
+
+
+  @override
+  void initState(){
+    //  TODO: implement initstate
+    super.initState();
+    dbHelper = DbHelperData();
+  }
+
+
+
   Widget textFeild({required String hintText, required IconData icon, required bool obscureText}){
     return TextField(
       obscureText: obscureText,
@@ -83,6 +103,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               onPressed: (){
+
+                int aa = dbHelper.getLogin(email.text,password.text);
+                if(aa>0)
+                  {
+                    print('You Have Sucessfuly');
+                  }
+                else{
+                  print('Login Faild');
+                }
 
               },
               child: Text('Login',style: TextStyle(color: Colors.white,fontSize: 20.0),),
