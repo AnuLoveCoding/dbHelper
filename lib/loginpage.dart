@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Widget textFeild({required String hintText, required IconData icon, required bool obscureText}){
+    return TextField(
+      obscureText: obscureText,
+      decoration: InputDecoration(
+        prefixIcon: Icon(icon,color: Colors.white,),
+        hintText: hintText,
+        hintStyle: TextStyle(color: Colors.white),
+        enabledBorder: UnderlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          borderSide: BorderSide(color: Colors.grey),
+        ),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+            borderSide: BorderSide(color: Colors.green)
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +60,13 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           ),
+          Container(
+            padding: EdgeInsets.only(left: 60.0),
+            // margin: EdgeInsets.symmetric(horizontal: 50.0),
+            child: ElevatedButton(
+                onPressed: (){
+                }, child: Text('Forget Password',style: TextStyle(color: Colors.white,fontSize: 15.0,fontWeight: FontWeight.bold),)),
+            ),
           SizedBox(height: 20.0,),
           Container(
             width: 150.0,

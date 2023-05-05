@@ -1,5 +1,6 @@
 import 'package:dbhelper_registrationform/InputAndOutputQuestions.dart';
 import 'package:dbhelper_registrationform/Signupform.dart';
+import 'package:dbhelper_registrationform/loginpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: SignupForm(),
+      home: LoginPage(),
     );
   }
 }
