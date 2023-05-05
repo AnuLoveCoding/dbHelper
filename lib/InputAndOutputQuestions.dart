@@ -46,7 +46,7 @@ class _InputState extends State<Input> {
               });
               }, child: Text('Sum of two numbers'),
             ),
-            SizedBox(height: 10.0,),
+            SizedBox(height: 5.0,),
             Text('Sum $c'),
           ],
         ),

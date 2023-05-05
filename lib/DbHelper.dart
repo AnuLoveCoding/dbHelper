@@ -24,8 +24,7 @@ class DbHelperData{
     static const String pass = 'pass';
     static const String mob = 'mobile';
 
-//    =========Create Database //
-
+//    =========Initialize Database //
       Future<Database> get db async{
         if(_db!= null){
           return _db!;
@@ -34,6 +33,7 @@ class DbHelperData{
         return _db!;
       }
 
+  //    ========Create Database=======   //
   createDataBase() async {
     io.Directory docdic = await getApplicationDocumentsDirectory();
     String path = join(docdic.path,DATABASE_NAME);
@@ -42,6 +42,7 @@ class DbHelperData{
   }
  
    _onCreate(Database db, int version) async {
+        // Create Table and Insert Columns for data;
         await db.execute('create table $TABLE_NAME('
           "$userid Text,"
           "$name Text,"
@@ -52,9 +53,7 @@ class DbHelperData{
         );
    }
 
-
   // =======Insert DATA Into A DataBase======= //
-
     Future<int>InsertData(String id, String name, String email, String pass, String mob) async{
         var dbClient = await db;
         var map = Map<String, dynamic>();
