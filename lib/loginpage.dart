@@ -9,13 +9,10 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-
   final email = TextEditingController();
   final password = TextEditingController();
 
-
   var dbHelper;
-
 
   @override
   void initState(){
@@ -23,8 +20,6 @@ class _LoginPageState extends State<LoginPage> {
     super.initState();
     dbHelper = DbHelperData();
   }
-
-
 
   Widget textFeild({required String hintText, required IconData icon, required bool obscureText}){
     return TextField(
@@ -104,7 +99,6 @@ class _LoginPageState extends State<LoginPage> {
               ),
               onPressed: (){
 
-
                 int aa = dbHelper.getLogin(email.text,password.text);
                 if(aa>0)
                   {
@@ -124,7 +118,6 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Text('New User ? ',style: TextStyle(color: Colors.grey),),
               Text('Register Now.',style: TextStyle(color: Colors.red),),
-
             ],
           )
         ],
