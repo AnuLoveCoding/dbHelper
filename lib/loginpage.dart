@@ -98,7 +98,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               onPressed: (){
-
                 int aa = dbHelper.getLogin(email.text,password.text);
                 if(aa>0)
                   {
@@ -107,7 +106,6 @@ class _LoginPageState extends State<LoginPage> {
                 else{
                   print('Login Faild');
                 }
-
               },
               child: Text('Login',style: TextStyle(color: Colors.white,fontSize: 20.0),),
             ),
